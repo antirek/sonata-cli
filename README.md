@@ -1,0 +1,2 @@
+# sonata-cli
+Sonata CLI
