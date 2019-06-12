@@ -7,7 +7,7 @@
   "description": "Sonata CLI",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,14 @@
   },
   "homepage": "https://github.com/antirek/sonata-cli#readme",
   "dependencies": {
+    "astconf": "0.0.5",
     "commander": "^2.20.0",
+    "js-ini": "^1.1.2",
     "node-fetch": "^2.5.0",
     "tty-table": "^2.7.0"
+  },
+  "devDependencies": {
+    "async-file": "^2.0.2",
+    "jasmine": "^3.4.0"
   }
 }
