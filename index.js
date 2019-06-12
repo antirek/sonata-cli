@@ -2,7 +2,12 @@ const program = require('commander');
 const fetch = require('node-fetch');
 const table = require('tty-table');
 
-const sonataManageApi = 'http://sonata_management_api:3021/v1';
+const options = {
+  sonataManagementApiUrl: 'http://sonata_management_api:3021/v1'
+};
+
+const ActionProvision = require('./lib/actionProvision');
+
 
 program
   .version('0.1.0');
@@ -10,7 +15,7 @@ program
 program
   .command('vendors')
   .action((cmd, env) => {
-    fetch(sonataManageApi + '/vendor')
+    fetch(options.sonataManagementApiUrl + '/vendor')
       .then(res => res.json())
       .then((res) => {
         const header = [{value: 'id'}, {value: 'name'}];
@@ -29,7 +34,7 @@ program
   .command('vendor <id>')  
   .action((cmd, env) => {
     // console.log(cmd);
-    fetch(sonataManageApi + '/vendor/' + cmd)
+    fetch(options.sonataManagementApiUrl + '/vendor/' + cmd)
       .then(res => res.json())
       .then(console.log)
       .catch((err) => {
@@ -37,5 +42,12 @@ program
       })
   });
 
+program
+  .command('provision')
+  .option('-p --path [path]', 'sip.conf path, default /etc/asterisk/sip.conf')
+  .option('-v --vendor [vendor]', 'default vendor')
+  .option('-m --model [model]', 'default model')
+  .option('-h --host [host]', 'sip server host')
+  .action((new ActionProvision(options)).process)
 
 program.parse(process.argv);
