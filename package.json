@@ -23,7 +23,7 @@
     "astconf": "0.0.5",
     "commander": "^2.20.0",
     "js-ini": "^1.1.2",
-    "node-fetch": "^2.5.0",
+    "node-fetch": "^2.6.7",
     "tty-table": "^2.7.0"
   },
   "devDependencies": {
