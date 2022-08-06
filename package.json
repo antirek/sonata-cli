@@ -22,7 +22,7 @@
   "dependencies": {
     "astconf": "0.0.5",
     "commander": "^2.20.0",
-    "js-ini": "^1.1.2",
+    "js-ini": "^1.3.0",
     "node-fetch": "^2.5.0",
     "tty-table": "^2.7.0"
   },
